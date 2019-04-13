@@ -11,7 +11,7 @@ class ApiAuto
 
     public static function setRoutes()
     {
-        Route::post('/auto', "\\" . ApiAutoController::class . '@router')->middleware(CheckClientCredentials::class);
+        Route::post('/auto', "\\" . ApiAutoController::class . '@router');
     }
 
     public static function getValidRequestTypes()

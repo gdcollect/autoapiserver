@@ -23,19 +23,23 @@ class ApiAutoController extends BaseController
         $this->apiService = new ApiAutoService();
         ConfigurationChecks::setTablesConfiguration();
 
-        if (ConfigurationChecks::isMiddlewareSet($apiServerRequest->table, $apiServerRequest->type)) {
-            $this->middleware(ConfigurationChecks::getMiddleware($apiServerRequest->table, $apiServerRequest->type));
+        if(ConfigurationChecks::isTablesConfigurationSet()) {
+            if (ConfigurationChecks::isMiddlewareSet($apiServerRequest->table, $apiServerRequest->type)) {
+                $this->middleware(ConfigurationChecks::getMiddleware($apiServerRequest->table, $apiServerRequest->type));
+            }
         }
     }
 
     private function validateData(string $table, string $type, array $requestBody, ApiResult &$result)
     {
-        if (ConfigurationChecks::areValidationRulesSet($table, $type)) {
-            $data = $requestBody["data"];
-            $validator = Validator::make($data, ConfigurationChecks::getValidationRules($table, $type));
-            if ($validator->fails()) {
-                $result->setError(true);
-                $result->setBody($validator->getMessageBag());
+        if(ConfigurationChecks::isTablesConfigurationSet()) {
+            if (ConfigurationChecks::areValidationRulesSet($table, $type)) {
+                $data = $requestBody["data"];
+                $validator = Validator::make($data, ConfigurationChecks::getValidationRules($table, $type));
+                if ($validator->fails()) {
+                    $result->setError(true);
+                    $result->setBody($validator->getMessageBag());
+                }
             }
         }
     }

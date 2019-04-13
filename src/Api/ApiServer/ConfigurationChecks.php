@@ -3,7 +3,7 @@
 namespace AutoApiServer\Api\ApiServer;
 
 
-use AutoApiServer\Api\ApiServer\Configs\Tables;
+use App\Configs\Tables;
 
 class ConfigurationChecks extends Tables
 {
