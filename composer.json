@@ -1,0 +1,41 @@
+{
+    "name": "entelodon/autoapiserver",
+    "description": "A Laravel Api Server Package, that provides you full CRUD compatibility (Laravel Passport Friendly)",
+    "keywords": ["laravel", "api", "server"],
+    "license": "MIT",
+    "homepage": "https://github.com/entelodon/autoapiserver",
+    "support": {
+        "issues": "https://github.com/entelodon/autoapiserver/issues",
+        "source": "https://github.com/entelodon/autoapiserver"
+    },
+    "authors": [
+        {
+            "name": "Kristian Tsivkov",
+            "email": "ktsivkov1997@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-json": "*"
+    },
+    "require-dev": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "AutoApiServer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+
+      }
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+
+            ]
+        }
+    }
+}
